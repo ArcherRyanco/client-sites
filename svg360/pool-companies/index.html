@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG360 for Pool Companies | Pool Builder & Service Marketing</title>
+    <meta name="description" content="Fill your build schedule with qualified pool buyers. SVG360's multi-touch marketing reaches homeowners actively researching pools and outdoor living.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --accent: #c41e3a;
+            --accent-hover: #e02244;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --border: #2a2a2a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--accent); }
+        .logo span { color: var(--text-primary); }
+        .nav-cta { background: var(--accent); color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+        .nav-cta:hover { background: var(--accent-hover); }
+        .hero { padding: 100px 0; text-align: center; background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); }
+        .hero-badge { display: inline-block; background: rgba(196, 30, 58, 0.15); color: var(--accent); padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(196, 30, 58, 0.3); }
+        .hero h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero h1 .highlight { color: var(--accent); }
+        .hero p { font-size: 20px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px; }
+        .hero-cta { display: inline-block; background: var(--accent); color: white; padding: 16px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 18px; transition: all 0.2s; }
+        .hero-cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .stats { padding: 60px 0; background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .stat-item h3 { font-size: 48px; font-weight: 800; color: var(--accent); margin-bottom: 8px; }
+        .stat-item p { color: var(--text-secondary); font-size: 16px; }
+        .pain-points { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-label { color: var(--accent); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+        .section-header h2 { font-size: 40px; font-weight: 700; margin-bottom: 16px; }
+        .section-header p { color: var(--text-secondary); font-size: 18px; max-width: 600px; margin: 0 auto; }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .pain-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+        .pain-card h3 { font-size: 22px; margin-bottom: 12px; color: var(--accent); }
+        .pain-card p { color: var(--text-secondary); font-size: 16px; margin-bottom: 16px; }
+        .pain-card .solution { color: var(--text-primary); font-weight: 500; }
+        .how-it-works { padding: 100px 0; background: var(--bg-secondary); }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .step-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; transition: all 0.3s; }
+        .step-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--accent); color: white; border-radius: 50%; font-weight: 700; font-size: 20px; margin-bottom: 20px; }
+        .step-card h3 { font-size: 22px; margin-bottom: 12px; }
+        .step-card p { color: var(--text-secondary); font-size: 16px; }
+        .cta-section { padding: 100px 0; text-align: center; }
+        .cta-section h2 { font-size: 40px; margin-bottom: 16px; }
+        .cta-section p { color: var(--text-secondary); font-size: 18px; margin-bottom: 40px; }
+        .form-container { max-width: 500px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 40px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group select { width: 100%; padding: 14px 16px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-size: 16px; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+        .form-group input::placeholder { color: var(--text-muted); }
+        .submit-btn { width: 100%; padding: 16px; background: var(--accent); color: white; border: none; border-radius: 6px; font-size: 18px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .submit-btn:hover { background: var(--accent-hover); }
+        footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-logo { font-size: 20px; font-weight: 800; color: var(--accent); margin-bottom: 16px; }
+        .footer-logo span { color: var(--text-primary); }
+        footer p { color: var(--text-muted); font-size: 14px; }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">SVG<span>360</span></div>
+            <a href="#contact" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Built for Pool Builders & Service Companies</div>
+            <h1>Reach Homeowners <span class="highlight">Ready to Build Their Dream Pool</span></h1>
+            <p>Stop waiting for referrals. SVG360 puts your company in front of homeowners actively researching pools, outdoor kitchens, and backyard renovations.</p>
+            <a href="#contact" class="hero-cta">Fill Your Build Schedule</a>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>93:1</h3>
+                    <p>Documented ROI</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25K+</h3>
+                    <p>Homeowners Reached</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Touchpoints Per Buyer</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>AI Lead Capture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pain-points">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Sound Familiar?</p>
+                <h2>Pool Company Marketing Challenges</h2>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>"Referrals aren't enough anymore"</h3>
+                    <p>Word-of-mouth built your business, but growth has plateaued. You need a consistent flow of new leads.</p>
+                    <p class="solution">→ SVG360 generates new-to-you prospects actively searching for pool builders</p>
+                </div>
+                <div class="pain-card">
+                    <h3>"Lead aggregators send tire-kickers"</h3>
+                    <p>HomeAdvisor, Angi, and the rest sell the same lead to 5 companies. By the time you call, they've already decided.</p>
+                    <p class="solution">→ SVG360 delivers exclusive leads who've engaged with YOUR brand</p>
+                </div>
+                <div class="pain-card">
+                    <h3>"Seasonality kills our pipeline"</h3>
+                    <p>Spring is chaos, winter is crickets. You need leads researching now for builds in 3-6 months.</p>
+                    <p class="solution">→ SVG360 reaches early-stage buyers planning their dream backyard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">How It Works</p>
+                <h2>Multi-Touch Marketing for Pool Companies</h2>
+                <p>We stay in front of homeowners through their entire decision journey.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Targeted Email Campaign</h3>
+                    <p>25,000+ homeowners in your service area. Targeted by home value, lot size, and home improvement intent signals. We find people thinking about pools.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Streaming TV Retargeting</h3>
+                    <p>Everyone who engages sees your 30-second video on Hulu, Roku, and streaming platforms. Showcase your best builds in their living room.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Social Media Retargeting</h3>
+                    <p>Stay top-of-mind on Facebook and Instagram with stunning pool imagery. When they're ready for a quote, you're the builder they call.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>AI Lead Capture</h3>
+                    <p>When prospects hit your website, our AI engages immediately. Answers questions about timelines and process, captures their info, and books consultations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Book More Pool Projects?</h2>
+            <p>Let's build a lead pipeline that keeps your crews busy year-round.</p>
+            <div class="form-container">
+                <form id="lead-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Business Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@poolcompany.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Blue Water Pools" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Primary Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select your focus</option>
+                            <option value="pool-construction">Pool Construction (New Builds)</option>
+                            <option value="pool-renovation">Pool Renovation & Remodeling</option>
+                            <option value="outdoor-living">Outdoor Living (Kitchens, Patios)</option>
+                            <option value="pool-service">Pool Service & Maintenance</option>
+                            <option value="full-service">Full Service (Build + Service)</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="vertical" value="pool-company">
+                    <button type="submit" class="submit-btn">Get My Custom Strategy</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">SVG<span>360</span></div>
+            <p>A product of <a href="https://svgdigital.com" target="_blank">SVG Digital</a> · Florence, SC</p>
+            <p style="margin-top: 8px;">© 2026 SVG Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            console.log('Form submitted:', data);
+            this.innerHTML = '<div style="text-align: center; padding: 40px 0;"><h3 style="color: #c41e3a; margin-bottom: 16px;">Thanks!</h3><p>We\'ll be in touch within 24 hours to discuss your custom strategy.</p></div>';
+        });
+    </script>
+</body>
+</html>
